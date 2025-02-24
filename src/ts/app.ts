@@ -1,46 +1,38 @@
-interface ThemeOptions {
-    debug: boolean;
-    version: string;
+/**
+ * Main entry point for Atrawi theme JavaScript
+ */
+
+import Theme from './core/theme';
+import { logInfo } from './utils/logger';
+
+/**
+ * Initialize the theme when the DOM is ready
+ */
+function initTheme(): void {
+  // Get theme version from meta tag if available
+  const versionMeta = document.querySelector('meta[name="theme-version"]');
+  const themeVersion = versionMeta ? versionMeta.getAttribute('content') : '1.0.0';
+  
+  // Initialize theme singleton
+  const theme = Theme.getInstance({
+    debug: process.env.NODE_ENV !== 'production',
+    version: themeVersion || '1.0.0'
+  });
+  
+  // Make theme accessible globally for debugging
+  if (process.env.NODE_ENV !== 'production') {
+    (window as any).AtrawiTheme = theme;
+    logInfo('Theme initialized and available via window.AtrawiTheme');
+  }
 }
 
-class AtrawiTheme {
-    private options: ThemeOptions;
-
-    constructor(options: ThemeOptions) {
-        this.options = options;
-        this.init();
-    }
-
-    private init(): void {
-        if (this.options.debug) {
-            console.log(`Atrawi Theme initialized (v${this.options.version})`);
-        }
-
-        this.setupEventListeners();
-    }
-
-    private setupEventListeners(): void {
-        document.addEventListener('DOMContentLoaded', () => {
-            this.handleMobileMenu();
-        });
-    }
-
-    private handleMobileMenu(): void {
-        const menuToggle = document.querySelector('.mobile-menu-toggle');
-        const mobileMenu = document.querySelector('.mobile-menu');
-
-        if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-    }
+/**
+ * Initialize on DOM ready
+ */
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTheme);
+} else {
+  initTheme();
 }
 
-// Initialize the theme
-const atrawi = new AtrawiTheme({
-    debug: true,
-    version: '1.0.0'
-});
-
-export default atrawi;
+export default initTheme;
