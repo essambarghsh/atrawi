@@ -1,0 +1,2 @@
+(()=>{"use strict";new class{constructor(e){this.options=e,this.init()}init(){this.options.debug&&console.log(`Atrawi Theme initialized (v${this.options.version})`),this.setupEventListeners()}setupEventListeners(){document.addEventListener("DOMContentLoaded",(()=>{this.handleMobileMenu()}))}handleMobileMenu(){const e=document.querySelector(".mobile-menu-toggle"),t=document.querySelector(".mobile-menu");e&&t&&e.addEventListener("click",(()=>{t.classList.toggle("hidden")}))}}({debug:!0,version:"1.0.0"})})();
+//# sourceMappingURL=app.js.map
