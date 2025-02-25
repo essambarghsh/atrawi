@@ -10,7 +10,7 @@
     "build:js": "webpack --mode production",
     "build:css": "npx tailwindcss -i ./src/css/app.css -o ./assets/css/app.css --minify",
     "build": "npm-run-all --parallel build:js build:css",
-    "shell": "./shell.sh"
+    "info": "./project-info.sh"
   },
   "keywords": [],
   "author": "",
