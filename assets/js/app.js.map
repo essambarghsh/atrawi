@@ -1,1 +1,1 @@
-{"version":3,"file":"js/app.js","mappings":";;;;;AAAa;AACb;AACA;AACA","sources":["webpack://atrawi/./src/ts/app.ts"],"sourcesContent":["\"use strict\";\n/**\n * Main entry point for Atrawi theme JavaScript\n */ \n"],"names":[],"sourceRoot":""}
+{"version":3,"file":"js/app.js","mappings":";;;;;AAAa","sources":["webpack://atrawi/./src/ts/app.ts"],"sourcesContent":["\"use strict\";\n"],"names":[],"sourceRoot":""}

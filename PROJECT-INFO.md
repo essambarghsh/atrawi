@@ -1,5 +1,5 @@
 # Atrawi WordPress Theme
-Generated on: 2025-02-26 00:07:20
+Generated on: 2025-02-27 02:02:54
 
 ## Project Information
 * Name: Atrawi
@@ -29,38 +29,51 @@ Generated on: 2025-02-26 00:07:20
 ## Directory Structure
 ```
 .
-├── app
-│   ├── admin
-│   ├── config
-│   │   └── constants.php
-│   ├── core
-│   │   ├── helpers.php
-│   │   └── theme.php
-│   └── modules
-│       ├── customizer-module.php
-│       └── widgets-module.php
 ├── assets
 │   ├── css
-│   │   └── app.css
+│   │   ├── app.css
+│   │   ├── app-rtl.css
+│   │   └── mobile.css
 │   ├── images
 │   └── js
 │       ├── app.js
 │       └── app.js.map
 ├── components
-│   ├── footer.php
-│   └── header.php
+│   ├── footer
+│   │   └── v1
+│   │       └── index.php
+│   └── header
+│       └── v1
+│           └── index.php
+├── core
+│   ├── admin
+│   │   └── modules
+│   ├── config
+│   ├── integrations
+│   ├── main
+│   │   ├── api.php
+│   │   ├── registry.php
+│   │   ├── seo.php
+│   │   └── theme.php
+│   ├── modules
+│   ├── widgets
+│   ├── enqueue.php
+│   ├── functions.php
+│   ├── helpers.php
+│   └── setup.php
 ├── languages
 ├── src
 │   ├── css
-│   │   └── app.css
+│   │   ├── app.css
+│   │   ├── app-rtl.css
+│   │   └── mobile.css
 │   └── ts
 │       ├── components
 │       ├── core
 │       │   ├── theme.ts
 │       │   └── types.ts
+│       ├── modules
 │       ├── utils
-│       │   ├── dom.ts
-│       │   └── logger.ts
 │       └── app.ts
 ├── utils
 ├── footer.php
@@ -69,13 +82,15 @@ Generated on: 2025-02-26 00:07:20
 ├── index.php
 ├── package.json
 ├── package-lock.json
+├── page.php
 ├── PROJECT-INFO.md
 ├── project-info.sh
 ├── screenshot.png
+├── searchform.php
 ├── style.css
 ├── tailwind.config.js
 ├── tsconfig.json
 └── webpack.config.js
 
-19 directories, 29 files
+27 directories, 36 files
 ```

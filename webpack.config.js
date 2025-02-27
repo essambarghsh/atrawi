@@ -2,7 +2,8 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        app: './src/ts/app.ts'
+        app: './src/ts/app.ts',
+        admin: './src/ts/core/admin/admin.ts'
     },
     output: {
         filename: 'js/[name].js',

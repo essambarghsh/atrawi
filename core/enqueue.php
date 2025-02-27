@@ -1,5 +1,7 @@
 <?php
 
+// core/enqueue.php
+
 if ( ! function_exists( 'atrawi_enqueue_base_scripts' ) ) {
 	/**
 	 * Enqueue base scripts.
@@ -12,6 +14,29 @@ if ( ! function_exists( 'atrawi_enqueue_base_scripts' ) ) {
     }
 
 	add_action( 'wp_enqueue_scripts', 'atrawi_enqueue_base_scripts', 30 );
+}
+
+if ( ! function_exists( 'atrawi_enqueue_admin_scripts' ) ) {
+    /**
+     * Enqueue admin scripts.
+     */
+    function atrawi_enqueue_admin_scripts() {
+        $screen = get_current_screen();
+        $version = atrawi_get_theme_info( 'Version' );
+        
+        // Only load on Atrawi theme settings pages
+        if ($screen && (strpos($screen->id, 'atrawi') !== false || strpos($screen->id, 'page_atrawi') !== false)) {
+            wp_enqueue_style('atrawi-admin-style', ATRAWI_STYLES . '/admin/admin.css', array(), $version);
+            wp_enqueue_script('atrawi-admin-script', ATRAWI_SCRIPTS . '/admin.js', array('jquery'), $version, true);
+            
+            // Localize script with proper nonce for AJAX
+            wp_localize_script('atrawi-admin-script', 'atrawiAdmin', array(
+                'ajaxUrl' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('atrawi_settings_nonce'),
+            ));
+        }
+    }
+    add_action('admin_enqueue_scripts', 'atrawi_enqueue_admin_scripts');
 }
 
 // CSS.

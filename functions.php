@@ -30,6 +30,12 @@ if ( ! function_exists( 'atrawi_load_classes' ) ) {
 		foreach ( $classes as $class ) {
 			require ATRAWI_MAIN_CLASSES . DIRECTORY_SEPARATOR . $class;
 		}
+
+		// Load admin settings if in admin area
+        if (is_admin()) {
+            require ATRAWI_DIR . '/core/admin/modules/settings/index.php';
+        }
+		
 	}
 }
 

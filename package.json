@@ -5,16 +5,19 @@
   "main": "index.php",
   "scripts": {
     "dev:js": "webpack --mode development --watch",
-    "dev:css": "npm-run-all --parallel dev:css:app dev:css:app:rtl dev:css:mobile",
+    "dev:css": "npm-run-all --parallel dev:css:app dev:css:app:rtl dev:css:mobile dev:css:admin",
     "dev:css:app": "npx tailwindcss -i ./src/css/app.css -o ./assets/css/app.css --watch",
     "dev:css:app:rtl": "npx tailwindcss -i ./src/css/app-rtl.css -o ./assets/css/app-rtl.css --watch",
     "dev:css:mobile": "npx tailwindcss -i ./src/css/mobile.css -o ./assets/css/mobile.css --watch",
+    "dev:css:admin": "npx tailwindcss -i ./src/css/admin/admin.css -o ./assets/css/admin/admin.css --watch",
     "dev": "npm-run-all --parallel dev:js dev:css",
+
     "build:js": "webpack --mode production",
-    "build:css": "npm-run-all --parallel build:css:app build:css:app:rtl build:css:mobile",
+    "build:css": "npm-run-all --parallel build:css:app build:css:app:rtl build:css:mobile build:css:admin",
     "build:css:app": "npx tailwindcss -i ./src/css/app.css -o ./assets/css/app.css --minify",
     "build:css:app:rtl": "npx tailwindcss -i ./src/css/app-rtl.css -o ./assets/css/app-rtl.css --minify",
     "build:css:mobile": "npx tailwindcss -i ./src/css/mobile.css -o ./assets/css/mobile.css --minify",
+    "build:css:admin": "npx tailwindcss -i ./src/css/admin/admin.css -o ./assets/css/admin/admin.css --minify",
     "build": "npm-run-all --parallel build:js build:css",
     "info": "./project-info.sh"
   },
